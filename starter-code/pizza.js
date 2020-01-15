@@ -94,6 +94,7 @@ function renderGlutenFreeCrust() {
 }
 
 
+
 function renderButtons() {
   // Iteration 3: add/remove the class "active" of each `<button class="btn">`
 }
