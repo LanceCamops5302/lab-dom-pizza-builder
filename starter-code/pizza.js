@@ -94,13 +94,48 @@ function renderGlutenFreeCrust() {
 }
 
 
-
 function renderButtons() {
   // Iteration 3: add/remove the class "active" of each `<button class="btn">`
-}
+  let element = document.querySelectorAll('button');
+  let index = 0;
+  let keyArr = Object.keys(state);
+  for (let i in state){
+    if(state[i]){
+    element[index].classList.add('active');
+    document.getElementById(`list-${keyArr[index]}`).style.display = "block"
+  }
+  else{
+    element[index].classList.remove('active');
+    document.getElementById(`list-${keyArr[index]}`).style.display = "none"
+  }
+  index++;
+}}
+
 
 function renderPrice() {
   // Iteration 4: change the HTML of `<aside class="panel price">`
+  let price = document.querySelector("strong")
+  let total = 10;
+  let count = 0;
+  for(let i in state){
+    if(state[i]){
+      switch(i){
+        case "pepperonni":
+        case "mushrooms":
+        case "greenPeppers":
+          total += 1;
+          break;
+      case "whiteSause":
+        total += 3;
+        break;
+      case "glutenFreeCrust":
+        total += 5;
+        break;
+      }
+    }
+    count ++;
+  }
+  price.innerHTML = ` $ ${total}`
 }
 
 
